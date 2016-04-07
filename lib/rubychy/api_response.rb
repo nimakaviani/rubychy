@@ -1,0 +1,31 @@
+module Rubychy
+  class ApiResponse
+    attr_reader :body
+    attr_reader :result
+    attr_reader :success
+
+    def initialize(response,fail_silently = false)
+      if response.status < 500
+        @body = response.body
+        puts "BODY #{@body.inspect}"
+        data = MultiJson.load(@body)
+        @success = (response.status == 200)
+
+        if @success
+          @result = data
+        else
+          if !fail_silently
+            fail Rubychy::Errors::BadRequestError.new(data['error_code'], data['description'])
+          end
+        end
+      else
+        if !fail_silently
+          fail Rubychy::Errors::ServiceUnavailableError.new(response.status)
+        end
+      end
+    end
+
+    alias_method :success?, :success
+  end
+end
+
