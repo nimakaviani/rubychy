@@ -19,36 +19,23 @@ module Rubychy
     end
 
     def send_message(*messages)
-      extra_params_validation = {
-        body: { required: true, class: [String] },
-        to: { required: true, class: [String] },
-        type: { required: true, class: [String] },
-        chatId: { required: true, class: [String] },
-      }
-
-      send_something('message', messages, extra_params_validation)
-    end
-
-    def send_something action, messages, validations
-      params = { messages: sanitize(action, messages, validations) }
-      api_request(action, params)
+      msgs = { messages: sanitize('message', messages) }
+      api_request('message', msgs)
     end
 
   private
 
-    def sanitize(action, params, validations)
-      if validations.nil?
-        return params
-      end
-
+    def sanitize(action, messages)
       validated_params = Array.new
-      params.each do |param|
+      messages.each do |message|
         # Delete params not accepted by the API
-        validated_param = param.to_hash.delete_if { |k, _v| !validations.key?(k) }
+        validated_param = message.to_hash.delete_if { |k, _v|
+          !message.validations.key?(k) || message.validations[k][:drop_empty]
+        }
 
         # Check all required params by the action are present
-        validations.each do |key, _value|
-          if validations[key][:required] && !validated_param.key?(key)
+        message.validations.each do |key, _value|
+          if message.validations[key][:required] && !validated_param.key?(key)
             fail Rubychy::Errors::MissingParamsError.new(key, action)
           end
         end
