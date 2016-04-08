@@ -35,7 +35,7 @@ module Rubychy
       messages.each do |message|
         # Delete params not accepted by the API
         validated_param = message.to_hash.delete_if { |k, _v|
-          !message.validations.key?(k) || message.validations[k][:drop_empty]
+          !message.validations.key?(k) || (message.validations[k][:drop_empty] && _v.nil?)
         }
 
         # Check all required params by the action are present
@@ -45,7 +45,7 @@ module Rubychy
           end
 
           # Check param types
-          unless _value[:class].include?(validated_param[key].class) || _value[:drop_empty]
+          unless _value[:class].include?(validated_param[key].class) || (_value[:drop_empty] && validated_param[key].nil?)
             fail Rubychy::Errors::InvalidParamTypeError.new(key, validated_param[key].class, _value[:class])
           end
           validated_params[key] = validated_param[key].to_s if _value[:class] == Fixnum
