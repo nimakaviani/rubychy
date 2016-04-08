@@ -1,7 +1,7 @@
 # rubychy
 A ruby client for the [Kik bot API](https://dev.kik.com/#/docs/getting-started)
 
-The rubychy library brows heavily from the great [Telegrammer](https://github.com/mayoral/telegrammer) API, developed by [Luis Mayoral](https://github.com/mayoral)
+The rubychy library borrows heavily from the great [Telegrammer](https://github.com/mayoral/telegrammer) API, developed by [Luis Mayoral](https://github.com/mayoral)
 
 ## Installation
 
