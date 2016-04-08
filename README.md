@@ -63,14 +63,13 @@ keyboard = Rubychy::DataTypes::Keyboard.new(
 
 link_message = Rubychy::DataTypes::Link.new(
  :url => 'http://robochy.com',
- :title => "Robochy",
+ :title => "Robochy", # Optional
  :to => "[RECIPIENT USERNAME]",
  :chatId => '[CHATID]'
 )
 
 text_message = Rubychy::DataTypes::Link.new(
  :body => 'Hello World!',
- :title => "[CUSTOM TITLE]", # Optional
  :to => "[RECIPIENT USERNAME]",
  :chatId => '[CHATID]',
  :keyboards => keyboard
