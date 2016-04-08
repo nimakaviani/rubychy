@@ -77,7 +77,7 @@ text_message = Rubychy::DataTypes::Text.new(
 
 bot.send_message(link_message, text_message)
 ```
-Robochy supports the existing data types for Kik. Refer to the library for the details.
+Rubychyr supports the existing data types for Kik. Refer to the library for the details.
 
 ## Getting User Information
 ```ruby
