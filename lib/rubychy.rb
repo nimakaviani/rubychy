@@ -31,21 +31,21 @@ module Rubychy
     # Error returned when a required param is missing
     class MissingParamsError < StandardError
       def initialize(parameter, action)
-        super("Missing parameter #{parameter} for action #{action}")
+        super("Missing parameter `#{parameter}` for `#{action}`")
       end
     end
 
     # Error returned when a param type is invalid
     class InvalidParamTypeError < StandardError
       def initialize(parameter, current_type, allowed_types)
-        super("Invalid parameter type: #{parameter}: #{current_type}. Allowed types: #{allowed_types.each { |type| type.class.to_s }.join(',')}.")
+        super("Invalid parameter type: `#{parameter}`: `#{current_type}`. Allowed types: #{allowed_types.each { |type| type.class.to_s }.join(',')}.")
       end
     end
 
     # Error returned when something goes bad with your request to the Rubychy API
     class BadRequestError < StandardError
       def initialize(error_code, message)
-        super("Bad request. Error code: #{error_code} - Message: #{message}")
+        super("Bad request. Error code: `#{error_code}` - Message: `#{message}`")
       end
     end
 

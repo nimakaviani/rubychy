@@ -40,10 +40,17 @@ module Rubychy
 
         # Check all required params by the action are present
         message.validations.each do |key, _value|
-          if message.validations[key][:required] && !validated_param.key?(key)
+          if _value[:required] && (!validated_param.key?(key) || validated_param[key].nil?)
             fail Rubychy::Errors::MissingParamsError.new(key, action)
           end
+
+          # Check param types
+          unless _value[:class].include?(validated_param[key].class) || _value[:drop_empty]
+            fail Rubychy::Errors::InvalidParamTypeError.new(key, validated_param[key].class, _value[:class])
+          end
+          validated_params[key] = validated_param[key].to_s if _value[:class] == Fixnum
         end
+
         validated_params << validated_param
       end
       return validated_params

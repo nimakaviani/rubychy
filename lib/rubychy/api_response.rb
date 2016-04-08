@@ -14,7 +14,7 @@ module Rubychy
           @result = data
         else
           if !fail_silently
-            fail Rubychy::Errors::BadRequestError.new(data['error_code'], data['description'])
+            fail Rubychy::Errors::BadRequestError.new(data['error'], data['message'])
           end
         end
       else
