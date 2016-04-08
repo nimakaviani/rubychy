@@ -25,7 +25,7 @@ Witht your bot `username` and the `API Key` you can use `rubychy` like the follo
 ```ruby
 require 'rubychy'
 
-bot = Rubychy::Bot.new('[USERNAME]', '[API KEY]')
+bot = Rubychy::Bot.new('[BOT USERNAME]', '[API KEY]')
 ```
 
 If you need to register a `callback` for your bot, do it through `config`:
@@ -44,10 +44,10 @@ With a created bot you can create messages of different type, attach custom keyb
 ```ruby
 require 'rubychy'
 
-bot = Rubychy::Bot.new('[USERNAME]', '[API KEY]')
+bot = Rubychy::Bot.new('[BOT USERNAME]', '[API KEY]')
 
 keyboard = Rubychy::DataTypes::Keyboard.new(
-   :to => 'nickcavison',
+   :to => '[RECIPIENT USERNAME]',
    :hidden => true,
    :responses => [
       Rubychy::DataTypes::KeyboardResponse.new(
@@ -64,14 +64,14 @@ keyboard = Rubychy::DataTypes::Keyboard.new(
 link_message = Rubychy::DataTypes::Link.new(
  :url => 'http://robochy.com',
  :title => "Robochy",
- :to => "[TARGET USERNAME]",
+ :to => "[RECIPIENT USERNAME]",
  :chatId => '[CHATID]'
 )
 
 text_message = Rubychy::DataTypes::Link.new(
  :body => 'Hello World!',
  :title => "[CUSTOM TITLE]", # Optional
- :to => "[TARGET USERNAME]",
+ :to => "[RECIPIENT USERNAME]",
  :chatId => '[CHATID]',
  :keyboards => keyboard
 )
@@ -84,7 +84,7 @@ Robochy supports the existing data types for Kik. Refer to the library for the d
 ```ruby
 require 'rubychy'
 
-bot = Rubychy::Bot.new('[USERNAME]', '[API KEY]')
+bot = Rubychy::Bot.new('[BOT USERNAME]', '[API KEY]')
 user_info = bot.get_user('[TARGET USERNAME]') # user_info is of type Rubychy::DataTypes::User
 ```
 
