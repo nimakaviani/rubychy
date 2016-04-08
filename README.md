@@ -68,7 +68,7 @@ link_message = Rubychy::DataTypes::Link.new(
  :chatId => '[CHATID]'
 )
 
-text_message = Rubychy::DataTypes::Link.new(
+text_message = Rubychy::DataTypes::Text.new(
  :body => 'Hello World!',
  :to => "[RECIPIENT USERNAME]",
  :chatId => '[CHATID]',
