@@ -19,6 +19,7 @@ module Rubychy
           to: { required: true, class: [String] },
           type: { required: true, class: [String] },
           chatId: { required: true, class: [String] },
+          keyboards: { required: false, class: [Array] },
         }
       end
     end

@@ -4,9 +4,17 @@ require 'multi_json'
 
 require 'rubychy/version'
 require 'rubychy/data_types/base'
+require 'rubychy/data_types/attribution'
+require 'rubychy/data_types/user'
+
+require 'rubychy/data_types/keyboard_response'
+require 'rubychy/data_types/keyboard'
+require 'rubychy/data_types/keyboards'
+
 require 'rubychy/data_types/message'
 require 'rubychy/data_types/sent_message'
-require 'rubychy/data_types/messages'
+require 'rubychy/data_types/received_message'
+require 'rubychy/data_types/received_messages'
 
 require 'rubychy/data_types/link'
 require 'rubychy/data_types/text'

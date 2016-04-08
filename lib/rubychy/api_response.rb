@@ -7,7 +7,6 @@ module Rubychy
     def initialize(response,fail_silently = false)
       if response.status < 500
         @body = response.body
-        puts "BODY #{@body.inspect}"
         data = MultiJson.load(@body)
         @success = (response.status == 200)
 

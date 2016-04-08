@@ -1,8 +1,7 @@
 module Rubychy
   module DataTypes
-    class KeyboardResponse < Rubychy::DataTypes::Base
-      attribute :type, String
-      attribute :body, String
+    class Keyboards < Rubychy::DataTypes::Base
+      attribute :keyboards, Array[Keyboard]
 
       def validations
         {
@@ -13,5 +12,6 @@ module Rubychy
     end
   end
 end
+
 
 

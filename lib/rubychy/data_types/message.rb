@@ -4,6 +4,7 @@ module Rubychy
       attribute :type, String
       attribute :id, String
       attribute :chatId, String
+      attribute :keyboards, Array[Keyboard]
     end
   end
 end

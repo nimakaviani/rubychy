@@ -15,12 +15,17 @@ module Rubychy
     end
 
     def config(webhook, features = Rubychy::DataTypes::Features.new)
-      api_request('config', {webhook: webhook, features: features})
+      api_post('config', {webhook: webhook, features: features})
     end
 
     def send_message(*messages)
       msgs = { messages: sanitize('message', messages) }
-      api_request('message', msgs)
+      api_post('message', msgs)
+    end
+
+    def get_user(username)
+      response = api_get("user/#{username}")
+      Rubychy::DataTypes::User.new(response.result)
     end
 
   private
@@ -44,7 +49,23 @@ module Rubychy
       return validated_params
     end
 
-    def api_request(action, params)
+    def api_get(action)
+      api_uri = "#{action}"
+      begin
+        response = @connection.get(
+          "#{API_ENDPOINT}/#{api_uri}",
+          nil
+        )
+
+        ApiResponse.new(response,@fail_silently)
+      rescue HTTPClient::ReceiveTimeoutError => e
+        if !@fail_silently
+          fail Rubychy::Errors::TimeoutError, e.to_s
+        end
+      end
+    end
+
+    def api_post(action, params)
       api_uri = "#{action}"
 
       begin
