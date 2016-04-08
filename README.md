@@ -18,7 +18,7 @@ $ bundle install
 ```
 
 ## Usage
-Create a bot using the [Kik](https://dev.kik.com/#/home). Upon registration, you will get to choose a `username` for your bot. Once the `username` is created navigate to the [bot configuration dashboard](https://dev.kik.com/#/engine) where you can find the `API Key`.
+Create a bot using the [Kik](https://dev.kik.com/#/home) developer portal. Upon registration, you will get to choose a `username` for your bot. Once the `username` is created navigate to the [bot configuration dashboard](https://dev.kik.com/#/engine) where you can find the `API Key`.
 
 Witht your bot `username` and the `API Key` you can use `rubychy` like the following:
 
