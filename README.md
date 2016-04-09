@@ -94,7 +94,7 @@ In your callback servlet:
 ```ruby
 class Simple < WEBrick::HTTPServlet::AbstractServlet
   def do_POST(request, response)
-    kik_response = Rubychy::DataTypes::ReceivedMessages.new(MultiJson.load(request.body))
+    kik_response = Rubychy::ApiResponse.parse(request) # kik_response is of type Rubychy::DataTypes::ReceivedMessages
   end
 end
 ```
