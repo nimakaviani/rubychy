@@ -1,7 +1,7 @@
 # rubychy
 A ruby client for the [Kik bot API](https://dev.kik.com/#/docs/getting-started)
 
-The rubychy library borrows heavily from the great [Telegrammer](https://github.com/mayoral/telegrammer) API, developed by [Luis Mayoral](https://github.com/mayoral)
+The rubychy library borrows heavily from the [Telegrammer](https://github.com/mayoral/telegrammer) API, developed by [Luis Mayoral](https://github.com/mayoral)
 
 ## Installation
 
@@ -28,7 +28,7 @@ require 'rubychy'
 bot = Rubychy::Bot.new('[BOT USERNAME]', '[API KEY]')
 ```
 
-If you need to register a `callback` for your bot, do it through `config`:
+If you need to register a `callback` for your bot, do it by calling `config`:
 
 ```ruby
 bot.config('[HTTPS CALLBACK URL]')
@@ -40,7 +40,7 @@ bot.config('[HTTPS CALLBACK URL]', Rubychy::DataTypes::Features.new([YOUR CONFIG
 ```
 
 ## Sending Messages
-With a created bot you can create messages of different type, attach custom keyboards, and pass them through the `send_message` function as follows:
+With a created bot you can create messages of different types, attach custom keyboards, and pass them through the `send_message` function as follows:
 ```ruby
 require 'rubychy'
 
@@ -85,6 +85,18 @@ require 'rubychy'
 
 bot = Rubychy::Bot.new('[BOT USERNAME]', '[API KEY]')
 user_info = bot.get_user('[TARGET USERNAME]') # user_info is of type Rubychy::DataTypes::User
+```
+
+## Parsing the Response
+
+In your callback servlet:
+
+```ruby
+class Simple < WEBrick::HTTPServlet::AbstractServlet
+  def do_POST(request, response)
+    kik_response = Rubychy::DataTypes::ReceivedMessages.new(MultiJson.load(request.body))
+  end
+end
 ```
 
 ## Contributing
