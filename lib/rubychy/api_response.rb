@@ -24,6 +24,10 @@ module Rubychy
       end
     end
 
+    def self.parse(request)
+      Rubychy::DataTypes::ReceivedMessages.new(MultiJson.load(request.body))
+    end
+
     alias_method :success?, :success
   end
 end
