@@ -4,6 +4,7 @@ require 'multi_json'
 
 require 'rubychy/version'
 require 'rubychy/data_types/base'
+require 'rubychy/data_types/features'
 require 'rubychy/data_types/attribution'
 require 'rubychy/data_types/user'
 
