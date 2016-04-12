@@ -97,7 +97,7 @@ user_info = bot.get_user('[TARGET USERNAME]') # user_info is of type Rubychy::Da
 
 ## Parsing the Response
 
-In your callback servlet:
+In your callback servlet, pass the received request to the `ApiResponse.parse` function:
 
 ```ruby
 class Simple < WEBrick::HTTPServlet::AbstractServlet
