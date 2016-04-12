@@ -1,7 +1,15 @@
 
 # rubychy
+<table border="0">
+<tr>
+<td width="200px">
 <img src="https://s3-us-west-2.amazonaws.com/robochyassets/rubychy/rubychy-logo-transparent.png" alt="Rubychy" height="150px"/> 
-A ruby client for the [Kik bot API](https://dev.kik.com/#/docs/getting-started) provided by [Robochy](http://robochy.com)
+</td>
+<td>
+A ruby client for the <a href="https://dev.kik.com/#/docs/getting-started">Kik bot API</a> provided by <a href="http://robochy.com">Robochy</a>.
+</td>
+</tr>
+</table>
 
 The rubychy library borrows heavily from the [Telegrammer](https://github.com/mayoral/telegrammer) API, developed by [Luis Mayoral](https://github.com/mayoral)
 
