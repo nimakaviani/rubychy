@@ -1,5 +1,7 @@
+
 # rubychy
-A ruby client for the [Kik bot API](https://dev.kik.com/#/docs/getting-started)
+<img src="https://s3-us-west-2.amazonaws.com/robochyassets/rubychy/rubychy-logo-transparent.png" alt="Rubychy" height="150px"/> 
+A ruby client for the [Kik bot API](https://dev.kik.com/#/docs/getting-started) provided by [Robochy](http://robochy.com)
 
 The rubychy library borrows heavily from the [Telegrammer](https://github.com/mayoral/telegrammer) API, developed by [Luis Mayoral](https://github.com/mayoral)
 
@@ -20,7 +22,7 @@ $ bundle install
 ## Usage
 Create a bot using the [Kik](https://dev.kik.com/#/home) developer portal. Upon registration, you will get to choose a `username` for your bot. Once the `username` is created navigate to the [bot configuration dashboard](https://dev.kik.com/#/engine) where you can find the `API Key`.
 
-Witht your bot `username` and the `API Key` you can use `rubychy` like the following:
+With your bot `username` and the `API Key` you can use `rubychy` like the following:
 
 ```ruby
 require 'rubychy'
