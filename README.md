@@ -2,7 +2,7 @@
 <table border="0">
 <tr>
 <td width="200px">
-<img src="https://s3-us-west-2.amazonaws.com/robochyassets/rubychy/rubychy-logo-transparent.png" alt="Rubychy" height="150px"/> 
+<img src="https://s3-us-west-2.amazonaws.com/robochyassets/rubychy/rubychy-150x150.png" alt="Rubychy" height="150px"/> 
 </td>
 <td>
 <h1>rubychy</h1>
