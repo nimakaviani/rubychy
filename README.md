@@ -1,4 +1,9 @@
-
+<!--
+  Title: rubychy
+  Description: A ruby client library for the Kik bot API
+  Author: Nima Kaviani - nkaviani
+  -->
+<meta name='keywords' content='rubychy, kik, bot, ruby, api, library'>
 <table border="0">
 <tr>
 <td width="200px">
